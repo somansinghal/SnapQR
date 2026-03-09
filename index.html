@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SnapQR</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
+
+</head>
+
+<body>
+
+<header>
+
+<img src="assets/snapqr.webp" class="logo">
+
+<h1>SnapQR</h1>
+
+<p>Create Smart QR Codes & Manage PDFs</p>
+
+</header>
+
+<nav>
+
+<button onclick="openTab('qr')">QR Generator</button>
+<button onclick="openTab('templates')">QR Templates</button>
+<button onclick="openTab('pdf')">PDF Tools</button>
+<button onclick="openTab('analytics')">Analytics</button>
+
+</nav>
+
+<div class="container">
+
+<!-- QR GENERATOR -->
+
+<section id="qr" class="tab">
+
+<h2>QR Generator</h2>
+
+<input id="qrInput" placeholder="Enter URL or text">
+
+<label>QR Style</label>
+
+<select id="qrStyle">
+
+<option value="rounded">Rounded</option>
+<option value="dots">Dots</option>
+<option value="square">Square</option>
+<option value="classy">Classy</option>
+
+</select>
+
+<label>Gradient Color 1</label>
+<input type="color" id="color1">
+
+<label>Gradient Color 2</label>
+<input type="color" id="color2">
+
+<label>Upload Logo</label>
+<input type="file" id="logoUpload">
+
+<button onclick="generateQR()">Generate</button>
+
+<div id="qrCanvas"></div>
+
+<button onclick="downloadQR()">Download</button>
+
+</section>
+
+<!-- QR TEMPLATES -->
+
+<section id="templates" class="tab">
+
+<h2>QR Templates</h2>
+
+<select id="templateType" onchange="showTemplateFields()">
+
+<option value="">Select Template</option>
+
+<option value="wifi">WiFi</option>
+<option value="whatsapp">WhatsApp</option>
+<option value="youtube">YouTube</option>
+<option value="maps">Google Maps</option>
+<option value="upi">UPI Payment</option>
+
+</select>
+
+<div id="templateFields"></div>
+
+<button onclick="generateTemplateQR()">Generate QR</button>
+
+<div id="templateQR"></div>
+
+</section>
+
+<!-- PDF -->
+
+<section id="pdf" class="tab">
+
+    <h2>PDF Tools</h2>
+    
+    <input type="file" id="pdfFiles" accept="application/pdf" >
+    <p id="fileSize"></p>
+    
+    <label>Target Size (MB)</label>
+    <input type="number" id="targetSize" placeholder="Example: 1">
+    
+    <button onclick="compressPDF()">Compress</button>
+    <button onclick="mergePDF()">Merge</button>
+    <button onclick="splitPDF()">Split</button>
+    
+    <div id="pdfResults"></div>
+    
+</section>
+
+<!-- ANALYTICS -->
+
+<section id="analytics" class="tab">
+
+<h2>QR Analytics</h2>
+
+<h3>Total Scans</h3>
+
+<p id="scanCount">0</p>
+
+<canvas id="heatmap" width="300" height="200"></canvas>
+
+</section>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
