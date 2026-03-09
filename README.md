@@ -1,7 +1,7 @@
 # ⚡ SnapQR
 
 <p align="center">
-<img src="snapqr." width="120"/>
+<img src="snapqr.webp" width="120"/>
 </p>
 
 <p align="center">
